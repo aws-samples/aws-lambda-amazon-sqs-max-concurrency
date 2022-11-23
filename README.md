@@ -1,11 +1,6 @@
-## My Project
+# Testing maximum concurrency of AWS Lambda functions when using Amazon SQS as an event source
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This AWS sample demonstrates how the maximum concurrency configuration for SQS as an event source helps control the Lambda function concurrency. This SAM template defines two Lambda functions and two SQS queues - one with maximum concurrency set to 5, another with [reserved concurrency](https://docs.aws.amazon.com/lambda/latest/operatorguide/reserved-concurrency.html) set to 5. By adding messages to the SQS queue, users can observe the difference in how Lambda processes the SQS messages  through the provided CloudWatch dashboards. You can read more about this feature in [AWS documentation and](tbd) or in this [blog](tbd)
 
 ## Security
 
