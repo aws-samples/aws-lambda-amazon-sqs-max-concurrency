@@ -47,6 +47,8 @@ Resources:
             Queue: !GetAtt MaxConcurrencyQueue.Arn
             BatchSize: 1
             Enabled: true
+            ScalingConfig:
+              MaximumConcurrency: 5
 
   ReservedConcurrencyFunction:
     Type: AWS::Serverless::Function
@@ -54,7 +56,7 @@ Resources:
       ReservedConcurrentExecutions: 5
       Handler: app.lambda_handler
       Events:
-        SQSEventFromMax:
+        SQSEventFromReserved:
           Type: SQS
           Properties:
             Queue: !GetAtt ReservedConcurrencyQueue.Arn
